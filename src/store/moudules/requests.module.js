@@ -40,11 +40,15 @@ export const requests = {
       }
     },
 
-    async getRequests({ commit }) {
+    async getRequests({ commit, dispatch }) {
       const token = store.getters['auth/token'];
       try {
         const { data } = await requestAxios.get(`/requests.json?auth=${token}`);
-        commit('setRequests', data);
+        const requests = Object.keys(data).map((key) => ({
+          id: key,
+          ...data[key],
+        }));
+        commit('setRequests', requests);
       } catch (error) {
         dispatch('setMessage', {
           value: error.message,
