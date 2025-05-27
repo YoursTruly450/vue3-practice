@@ -17,7 +17,7 @@
         <td>{{ r.fullName }}</td>
         <td>{{ r.phone }}</td>
         <td>{{ currency(r.amount) }}</td>
-        <!-- <td><AppStatus :type="r.status" /></td> -->
+        <td><AppStatus :type="r.status" /></td>
         <!-- <td>
           <router-link v-slot="{navigate}" custom :to="{name: 'Request', params: {id: r.id}}">
             <button class="btn" @click="navigate">Open</button>
