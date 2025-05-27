@@ -14,6 +14,7 @@ export default createStore({
   state() {
     return {
       message: null,
+      sidebar: false,
     };
   },
   mutations: {
