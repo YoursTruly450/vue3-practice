@@ -24,6 +24,12 @@ export default createStore({
     clearMessage(state) {
       state.message = null;
     },
+    openSidebar(state) {
+      state.sidebar = true;
+    },
+    clodeSidebar(state) {
+      state.sidebar = false;
+    },
   },
   actions: {
     setMessage({ commit }, message) {

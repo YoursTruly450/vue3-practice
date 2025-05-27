@@ -10,7 +10,7 @@
         <router-link to="/help">Help</router-link>
       </li>
       <li>
-        <a href="#">Messages</a>
+        <a href="#" @click.prevent="openSidebar">Messages</a>
       </li>
       <li>
         <a href="#" @click.prevent="logout">Exit</a>
@@ -33,8 +33,13 @@ export default {
       router.push('/login');
     };
 
+    const openSidebar = () => {
+      store.commit('openSidebar');
+    };
+
     return {
       logout,
+      openSidebar,
     };
   },
 }

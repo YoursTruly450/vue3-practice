@@ -20,8 +20,8 @@ export default {
 
   setup() {
     const questions = [
-      {title: 'Что есть в данной системе?', text: 'Тут есть все, для того, чтобы смотреть, какие заявки человек добавлял'},
-      {title: 'Как тут работает авторизация?', text: 'Все реализовано через Firebase'},
+      {title: 'What is in this system?', text: 'Here you have everything you need to see what requests a person has added'},
+      {title: 'How does authorization work here?', text: 'Everything is implemented through Firebase'},
     ];
 
     return { questions };
