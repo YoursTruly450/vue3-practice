@@ -2,12 +2,22 @@ import { createRouter, createWebHistory } from 'vue-router';
 import store from '../store/index';
 
 import Home from '../views/Home.vue';
+import Request from '../views/Request.vue';
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home,
+    meta: {
+      layout: 'main',
+      auth: true,
+    },
+  },
+  {
+    path: '/request/:id',
+    name: 'Request',
+    component: Request,
     meta: {
       layout: 'main',
       auth: true,

@@ -56,5 +56,53 @@ export const requests = {
         }, { root: true });
       }
     },
+
+    async getRequestById({ dispatch }, id) {
+      const token = store.getters['auth/token'];
+      try {
+        const { data } = await requestAxios.get(`/requests/${id}.json?auth=${token}`);
+        return data;
+      } catch (error) {
+        dispatch('setMessage', {
+          value: error.message,
+          type: 'danger',
+        }, { root: true });
+      }
+    },
+
+    async deleteRequest({ dispatch }, id) {
+      const token = store.getters['auth/token'];
+      try {
+        await requestAxios.delete(`/requests/${id}.json?auth=${token}`);
+        dispatch('setMessage', {
+          value: `Request with ID = ${id} was deleted`,
+          type: 'primary',
+        }, { root: true });
+        return true;
+      } catch (error) {
+        dispatch('setMessage', {
+          value: error.message,
+          type: 'danger',
+        }, { root: true });
+        return false;
+      }
+    },
+
+    async updateRequest({ dispatch }, { body, id }) {
+      const token = store.getters['auth/token'];
+      try {
+        const { data } = await requestAxios.patch(`/requests/${id}.json?auth=${token}`, body);
+        dispatch('setMessage', {
+          value: 'Request status updated',
+          type: 'primary',
+        }, { root: true });
+        return data;
+      } catch (error) {
+        dispatch('setMessage', {
+          value: error.message,
+          type: 'danger',
+        }, { root: true });
+      }
+    },
   },
 };
