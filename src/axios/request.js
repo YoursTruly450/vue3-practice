@@ -9,7 +9,7 @@ requestAxios.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response.status === 401) {
-      router.push('/auth?message=auth');
+      router.push('/login?message=auth');
     }
     return Promise.reject(error);
   },

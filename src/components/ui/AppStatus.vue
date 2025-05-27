@@ -24,10 +24,10 @@ export default {
     };
 
     const textMap = {
-      active: 'Активен',
-      cancelled: 'Отменен',
-      done: 'Завершен',
-      pending: 'Выполняется',
+      active: 'Active',
+      cancelled: 'Cancelled',
+      done: 'Done',
+      pending: 'Pending',
     };
 
     watch(props, val => {
