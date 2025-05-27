@@ -16,7 +16,7 @@
         <td>{{ idx + 1 }}</td>
         <td>{{ r.fullName }}</td>
         <td>{{ r.phone }}</td>
-        <!-- <td>{{ currency(r.amount) }}</td> -->
+        <td>{{ currency(r.amount) }}</td>
         <!-- <td><AppStatus :type="r.status" /></td> -->
         <!-- <td>
           <router-link v-slot="{navigate}" custom :to="{name: 'Request', params: {id: r.id}}">
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-// import {  currency  } from '../../utils/currency';
+import { currency } from '../../utils/currency-formatter';
 import AppStatus from '../ui/AppStatus';
 
 export default {
@@ -40,7 +40,7 @@ export default {
     },
   },
   setup() {
-    // return {  currency  };
+    return { currency };
   },
   components: {
     AppStatus,
